@@ -42,7 +42,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Scarlet, Minha Mulher - Nosso Primeiro Dia dos Namorados</title>
+  <title>Scarlet, Minha Mulher - Nosso Primeiro "Dia dos Namorados"</title>
   <style>
     body {
       margin: 0;
@@ -50,15 +50,20 @@
       background: linear-gradient(to bottom, #1a1a1a, #4a0e0e);
       color: #d9d9d9;
       text-align: center;
-      overflow-x: hidden;
       position: relative;
-      overflow: hidden;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 30px;
+      background: rgba(0, 0, 0, 0.85);
+      border: 2px solid #8b0000;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(139, 0, 0, 0.5);
     }
     header {
-      padding: 50px;
-      background: rgba(0, 0, 0, 0.8);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-      border-bottom: 2px solid #8b0000;
+      padding: 20px;
       position: relative;
       z-index: 1;
     }
@@ -105,37 +110,48 @@
       font-size: 1em;
       margin-top: 5px;
     }
-    .message, .story, .audio-player {
+    .message, .story {
       max-width: 800px;
       margin: 40px auto;
       padding: 20px;
-      background: rgba(0, 0, 0, 0.85);
-      border: 2px solid #8b0000;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 0, 0.7);
+      border-left: 4px solid #8b0000;
       position: relative;
       z-index: 1;
     }
-    .message h2, .story h2, .audio-player h2 {
+    .message h2, .story h2 {
       color: #8b0000;
       font-family: 'Crimson Text', serif;
       font-size: 2.5em;
       text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
     }
-    .message p, .story p, .audio-player p {
-      font-size: 1.2em;
-      line-height: 1.6;
+    .message p, .story p {
+      font-size: 1.3em;
+      line-height: 1.7;
       color: #d9d9d9;
     }
-    .audio-player audio {
-      width: 100%;
-      margin-top: 10px;
+    .audio-controls {
+      margin: 20px 0;
+      font-size: 1.1em;
+    }
+    .audio-controls button {
+      padding: 10px 20px;
+      background: #8b0000;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1em;
+      transition: background 0.3s;
+      margin: 0 10px;
+    }
+    .audio-controls button:hover {
+      background: #b22222;
     }
     footer {
-      padding: 20px;
-      background: #8b0000;
-      color: #fff;
-      font-size: 1em;
+      margin-top: 50px;
+      font-size: 1.1em;
+      color: #8b0000;
       text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
       position: relative;
       z-index: 1;
@@ -148,88 +164,90 @@
         width: 100%;
       }
     }
-    /* Placeholder for floating emojis - will be handled by JS */
-    .floating-emoji {
-      display: none; /* Temporarily hidden until JS loads */
+    /* Floating Cats */
+    .cat {
       position: absolute;
-      font-size: 1.5em;
-      opacity: 0.7;
-      pointer-events: none;
+      width: 60px;
+      animation: float 4s ease-in-out infinite;
+    }
+    .cat1 { left: 10%; top: 15%; }
+    .cat2 { right: 12%; top: 45%; }
+    .cat3 { left: 15%; top: 75%; }
+    .cat4 { right: 18%; top: 25%; }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-25px); }
     }
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <h1>Scarlet, Minha Mulher</h1>
-    <p>Nosso Primeiro Dia dos Namorados - 12 de Junho de 2025</p>
-  </header>
+  <div class="container">
+    <header>
+      <h1>Scarlet, Minha Mulher</h1>
+      <p>Nosso Primeiro "Dia dos Namorados" - 13 de Junho de 2025</p>
+    </header>
 
-  <section class="audio-player">
-    <h2>Nossas Músicas, Minha Mulher</h2>
-    <p>Para você, meu amor, duas músicas que ecoam o que sinto: "Iris" dos Goo Goo Dolls, nossa música que me faz sentir você em cada nota, como se o tempo parasse só para nós, e "Pretty Please", que captura sua energia vibrante, aquela que me deixa completamente louco por você.</p>
-    <p><strong>Iris - Goo Goo Dolls</strong></p>
-    <audio controls>
-      <source src="iris-goo-goo-dolls.mp3" type="audio/mpeg">
-      Seu navegador não suporta o elemento de áudio. <!-- Check if file exists in root -->
-    </audio>
-    <p><strong>Pretty Please</strong></p>
-    <audio controls>
-      <source src="pretty-please.mp3" type="audio/mpeg">
-      Seu navegador não suporta o elemento de áudio. <!-- Check if file exists in root -->
-    </audio>
-  </section>
-
-  <section class="message">
-    <h2>Para Minha Shiori, Minha Mulher</h2>
-    <p>Scarlet, minha pituxa de 1,50, minha mulher, desde o ensino médio você roubou meu coração e nunca mais devolveu. Aquela garotinha que me zoava nos corredores, com aquele sorriso que iluminava tudo ao redor, me fez apaixonar com um único encontro que mudou minha vida para sempre. Mesmo que naquela época não tivemos nada, cada olhar seu, cada risada, ficou gravado em mim como uma tatuagem na alma. Eu sonhava com você, Scarlet, mesmo sem te ter, e cada dia sem você era como uma noite sem estrelas. Agora, tendo você nos meus braços, eu fico completamente doido, obcecado pelo seu sorriso, pela sua felicidade, pelo seu amor que me consome. Quando ouço "Iris", nossa música, sinto você correndo nas minhas veias, como se o universo tivesse conspirado para nos unir. "Pretty Please" me lembra do seu jeito provocador, daquela energia que me faz querer te agarrar e nunca mais soltar. Você é minha mulher, Scarlet, minha razão de viver, meu tudo. Cada risada que compartilhamos, cada provocação que me faz rir até a barriga doer, cada momento ao seu lado é um pedaço do paraíso que eu nunca soube que existia. Eu vivo para te proteger, para te amar com uma intensidade que queima, que me faz querer gritar pro mundo que você é minha. Eu te amo, amor, eu te amo, Scarlet, com cada fibra do meu ser. Obrigado por me deixar ser seu, por me deixar te chamar de minha mulher, por me fazer sentir vivo a cada segundo que passo com você.</p>
-  </section>
-
-  <section class="story">
-    <h2>Nossa História, Gravada no Meu Sangue</h2>
-    <p>Scarlet, minha mulher, nossa história começou lá no ensino médio, quando você era aquela menina que me fazia perder o fôlego só de passar por mim. Lembro de cada detalhe: o jeito que você jogava o cabelo, as zoeiras que me deixavam sem graça mas com um sorriso bobo no rosto, aquele único encontro que foi como uma faísca acendendo um incêndio no meu coração. Naquela época, a vida nos levou por caminhos diferentes, mas você nunca saiu de mim. Cada música que tocava, cada canto da escola, tudo me lembrava você, como se o destino estivesse me dizendo que você era meu futuro. Anos se passaram, e eu carregava você no peito, um vazio que só você podia preencher. Quando te reencontrei, Scarlet, foi como se o mundo finalmente fizesse sentido. Agora, com você ao meu lado, cada dia é uma promessa de eternidade. Você me zoa, me faz ser eu mesmo, me faz rir até as lágrimas caírem, e eu vivo por isso. Minha pituxa, meu amorzinho, minha mulher, você é o fogo que aquece minha alma, a luz que guia meus passos. Eu sou louco por você, obcecado por cada pedacinho seu, e não quero nunca mais imaginar uma vida sem você. Você é minha, Scarlet, e eu sou seu, para sempre, além do tempo, além de tudo.</p>
-  </section>
-
-  <section class="gallery">
-    <h2>Nossos Momentos, Eternos</h2>
-    <div class="polaroid">
-      <img src="nos-dois.jpg" alt="Você, Minha Mulher">
-      <div class="polaroid-caption">Nosso Abraço</div>
+    <div class="audio-controls">
+      <p>Uma musiquinha especial pra nós dois! 🎶</p>
+      <button onclick="playAudio('iris-goo-goo-dolls.mp3')">Nossa Música</button>
+      <button onclick="playAudio('pretty-please.mp3')">Por Favor...</button>
+      <audio id="bgMusic" style="display:none;">
+        <source src="" type="audio/mpeg">
+        Seu navegador não suporta o elemento de áudio.
+      </audio>
     </div>
-    <div class="polaroid">
-      <img src="primeiro-olhar.jpg" alt="Primeiro Encontro">
-      <div class="polaroid-caption">Primeiro Beijo</div>
-    </div>
-    <div class="polaroid">
-      <img src="momentos-especiais.jpg" alt="Meu Amor Eterno">
-      <div class="polaroid-caption">Momentos Especiais</div>
-    </div>
-  </section>
 
-  <footer>
-    <p>Feito com minha alma e coração para Shiori, minha Scarlet, minha mulher. Você é minha para sempre, e eu te amo além da eternidade. ❤️</p>
-  </footer>
+    <section class="message">
+      <h2>Para Minha Shiori, Minha Mulher</h2>
+      <p>Scarlet, minha pituxa de 1,50, minha mulher, desde o ensino médio você roubou meu coração e nunca mais devolveu. Aquela garotinha que me zoava nos corredores, com aquele sorriso que iluminava tudo ao redor, me fez apaixonar com um único encontro que mudou minha vida para sempre. Mesmo que naquela época não tivemos nada, cada olhar seu, cada risada, ficou gravado em mim como uma tatuagem na alma. Eu sonhava com você, Scarlet, mesmo sem te ter, e cada dia sem você era como uma noite sem estrelas. Agora, tendo você nos meus braços, eu fico completamente doido, obcecado pelo seu sorriso, pela sua felicidade, pelo seu amor que me consome. Quando ouço "Iris", nossa música, sinto você correndo nas minhas veias, como se o universo tivesse conspirado para nos unir. "Pretty Please" me lembra do seu jeito provocador, daquela energia que me faz querer te agarrar e nunca mais soltar. Você é minha mulher, Scarlet, minha razão de viver, meu tudo. Cada risada que compartilhamos, cada provocação que me faz rir até a barriga doer, cada momento ao seu lado é um pedaço do paraíso que eu nunca soube que existia. Eu vivo para te proteger, para te amar com uma intensidade que queima, que me faz querer gritar pro mundo que você é minha. Eu te amo, amor, eu te amo, Scarlet, com cada fibra do meu ser. Obrigado por me deixar ser seu, por me deixar te chamar de minha mulher, por me fazer sentir vivo a cada segundo que passo com você.</p>
+    </section>
+
+    <section class="story">
+      <h2>Nossa História, Gravada no Meu Sangue</h2>
+      <p>Scarlet, minha mulher, nossa história começou lá no ensino médio, quando você era aquela menina que me fazia perder o fôlego só de passar por mim. Lembro de cada detalhe: o jeito que você jogava o cabelo, as zoeiras que me deixavam sem graça mas com um sorriso bobo no rosto, aquele único encontro que foi como uma faísca acendendo um incêndio no meu coração. Naquela época, a vida nos levou por caminhos diferentes, mas você nunca saiu de mim. Cada música que tocava, cada canto da escola, tudo me lembrava você, como se o destino estivesse me dizendo que você era meu futuro. Anos se passaram, e eu carregava você no peito, um vazio que só você podia preencher. Quando te reencontrei, Scarlet, foi como se o mundo finalmente fizesse sentido. Agora, com você ao meu lado, cada dia é uma promessa de eternidade. Você me zoa, me faz ser eu mesmo, me faz rir até as lágrimas caírem, e eu vivo por isso. Minha pituxa, meu amorzinho, minha mulher, você é o fogo que aquece minha alma, a luz que guia meus passos. Eu sou louco por você, obcecado por cada pedacinho seu, e não quero nunca mais imaginar uma vida sem você. Você é minha, Scarlet, e eu sou seu, para sempre, além do tempo, além de tudo. Shiori, minha Scarlet, minha mulher. Eu te amo, namora comigo de novo? mesmo eu tendo pedido hoje? e pra todo sempre?.</p>
+    </section>
+
+    <section class="gallery">
+      <h2>Nossos Momentos, Eternos</h2>
+      <div class="polaroid">
+        <img src="nos-dois.jpg" alt="Você, Minha Mulher">
+        <div class="polaroid-caption">Nosso Abraço</div>
+      </div>
+      <div class="polaroid">
+        <img src="primeiro-olhar.jpg" alt="Primeiro Encontro">
+        <div class="polaroid-caption">Primeiro Beijo</div>
+      </div>
+      <div class="polaroid">
+        <img src="momentos-especiais.jpg" alt="Meu Amor Eterno">
+        <div class="polaroid-caption">Momentos Especiais</div>
+      </div>
+    </section>
+
+    <footer>
+      <p>Dia 13 de junho (Dia dos Namorados pq tá atrasado) - Feito com minha alma e coração para minha mulher.</p>
+    </footer>
+  </div>
+  <img src="https://img.icons8.com/emoji/60/000000/cat-emoji.png" class="cat cat1" alt="Gatinho 1">
+  <img src="https://img.icons8.com/emoji/60/000000/cat-emoji.png" class="cat cat2" alt="Gatinho 2">
+  <img src="https://img.icons8.com/emoji/60/000000/cat-emoji.png" class="cat cat3" alt="Gatinho 3">
+  <img src="https://img.icons8.com/emoji/60/000000/cat-emoji.png" class="cat cat4" alt="Gatinho 4">
 
   <script>
-    // Floating Emojis with JavaScript for better reliability
-    function createFloatingEmoji() {
-      const emojis = ['🖤', '★', '💍', '🐾'];
-      for (let i = 0; i < 8; i++) {
-        const emoji = document.createElement('div');
-        emoji.className = 'floating-emoji';
-        emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-        emoji.style.left = Math.random() * 100 + 'vw';
-        emoji.style.animationDelay = Math.random() * 15 + 's';
-        document.body.appendChild(emoji);
+    // Audio player function
+    let currentAudio = null;
 
-        // Remove emoji after animation to prevent buildup
-        emoji.addEventListener('animationend', () => emoji.remove());
-        setTimeout(() => document.body.appendChild(emoji), 0);
+    function playAudio(file) {
+      if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
       }
+      currentAudio = new Audio(file);
+      currentAudio.play().catch(error => {
+        console.log("Erro ao reproduzir o áudio: ", error);
+        alert("Não foi possível reproduzir o áudio. Verifique se o arquivo existe e foi carregado corretamente.");
+      });
     }
-
-    // Create new emojis every 2 seconds
-    setInterval(createFloatingEmoji, 2000);
   </script>
 </body>
 </html>
